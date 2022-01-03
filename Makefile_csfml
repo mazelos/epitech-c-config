@@ -1,0 +1,35 @@
+##
+## EPITECH PROJECT, 2021
+## Makefile
+## File description:
+## nope
+##
+
+NAME	=	binary_file
+
+SRC		=	$(wildcard src/*.c)
+
+LIBDIR	= 	./lib
+
+INCLUDE = 	-I./include
+
+CSFML	= 	-lcsfml-graphics -lcsfml-system -lcsfml-window
+
+FLAGS	=	$(INCLUDE) -L$(LIBDIR) -lmy $(CSFML)
+
+all:		$(NAME)
+
+$(NAME):	make_lib
+			gcc -o $(NAME) $(SRC) $(FLAGS)
+
+make_lib:
+			$(MAKE) -C $(LIBDIR)
+			$(MAKE) clean -C $(LIBDIR)
+
+clean:
+			rm -f *.o
+
+fclean:		clean
+			rm -f $(NAME)
+
+re:			fclean all
