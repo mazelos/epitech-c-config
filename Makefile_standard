@@ -7,7 +7,7 @@
 
 NAME	= 	binary_file
 
-SRC		= 	$(wildcard src/*.c)
+SRC		= 	$(shell find ./src -name *.c)
 
 LIBDIR	= 	./lib
 
